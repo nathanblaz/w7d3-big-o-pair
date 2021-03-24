@@ -1,13 +1,11 @@
 function firstAnagram(str1, str2) {
   // for loop
   for (let i = 0; i < str1.length; i++) {
-    // index of on second string inputting i
-    let currentIndex = str1[i];
-    let matchingIndex = str2.indexOf(currentIndex);
-    console.log(matchingIndex);
-    if (matchingIndex) {
+    if (str2.includes(str1[i])) {
       // delete at that index 
-      str2.replace(`${str2[matchingIndex]}`, '');
+      let splitArr = str2.split(str1[i]);
+      str2 = splitArr.join("");
+      console.log(str2);
     }
   }
   if (str2.length === 0) {
@@ -17,7 +15,7 @@ function firstAnagram(str1, str2) {
   
 }
 
-
+console.log(firstAnagram("elvis", "lives"));    // => true
 
 function secondAnagram(str1, str2) {
   // Code goes here ....
@@ -34,5 +32,5 @@ function fourthAnagram(str1, str2) {
 }
 
 
-// isAnagram("gizmo", "sally");    // => false
-console.log(firstAnagram("elvis", "lives"));    // => true
+// // isAnagram("gizmo", "sally");    // => false
+// console.log(firstAnagram("elvis", "lives"));    // => true
