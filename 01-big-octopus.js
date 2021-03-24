@@ -19,6 +19,7 @@ function quadraticBiggestFish(fishes) {
 
 // Loglinear/Linearithmic/Quasilinear example O(n log(n))
 
+// Dominant Octopus
 function nlognBiggestFish(fishes) {
 fishes.sort((a, b) => {
   if (a.length < b.length) {
@@ -36,11 +37,21 @@ return fishes[fishes.length -1];
 // 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
 // console.log(nlognBiggestFish(fishies));
 
-
-function linearBiggestFish(fishes) {
-  // Code goes here ...
+// Clever Octopus
+function linearBiggestFish(fishes) { // 
+  let longestWord = ""; // Time: O(1) Space: O(1)
+  for (let i = 0; i < fishes.length; i++) { // Time: O(n+1) -> O(n)
+    if (fishes[i].length > longestWord.length) {
+      longestWord = fishes[i];
+    }
+  }
+  // Return longest fish
+  return longestWord;
 }
 
+const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
+'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
+console.log(linearBiggestFish(fishies));
 
 tilesArray = ["up", "right-up", "right", "right-down", "down", "left-down", "left", "left-up"]
 function slowDance(direction, tilesArray) {
