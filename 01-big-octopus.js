@@ -1,11 +1,40 @@
+// polynomial example O(n^2)
+
 function quadraticBiggestFish(fishes) {
-  // Code goes here ...
+  for(let i = 0; i < fishes.length; i++) {
+    for(let j = 0; j < fishes.length; j++) {
+      console.log(`I equals ${i}, J equals ${j}`);
+      if(j === i) {
+        console.log(`Match!`);
+        return true;
+      }
+    }
+  }
 }
 
+// const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
+// 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
+// quadraticBiggestFish(fishies);
+
+
+// Loglinear/Linearithmic/Quasilinear example O(n log(n))
 
 function nlognBiggestFish(fishes) {
-  // Code goes here ...
+fishes.sort((a, b) => {
+  if (a.length < b.length) {
+    return -1;
+  }
+  if (a.length > b.length) {
+    return 1;
+  }
+  return 0;
+});
+return fishes[fishes.length -1];
 }
+
+// const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
+// 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
+// console.log(nlognBiggestFish(fishies));
 
 
 function linearBiggestFish(fishes) {
