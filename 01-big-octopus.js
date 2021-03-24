@@ -37,6 +37,8 @@ return fishes[fishes.length -1];
 // 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
 // console.log(nlognBiggestFish(fishies));
 
+// Linear O(n)
+
 // Clever Octopus
 function linearBiggestFish(fishes) { // 
   let longestWord = ""; // Time: O(1) Space: O(1)
@@ -49,15 +51,25 @@ function linearBiggestFish(fishes) { //
   return longestWord;
 }
 
-const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
-'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
-console.log(linearBiggestFish(fishies));
+// const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
+// 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
+// console.log(linearBiggestFish(fishies));
+
+// Linear O(n)
 
 tilesArray = ["up", "right-up", "right", "right-down", "down", "left-down", "left", "left-up"]
 function slowDance(direction, tilesArray) {
-  // Code goes here ...
+  for(let i = 0; i < tilesArray.length; i++) { // Time: O(n), Space: O
+    if(tilesArray[i] === direction){
+      return i;
+    }
+  }
 }
 
+// console.log(slowDance("right", tilesArray));
+
+
+// O(1) time - Constant
 
 tilesObj = {
   "up": 0,
@@ -70,5 +82,7 @@ tilesObj = {
   "left-up": 7
 }
 function fastDance(direction, tilesObj) {
-  // Code goes here ...
+  return tilesObj[direction];
 }
+
+// console.log(fastDance("down", tilesObj));
